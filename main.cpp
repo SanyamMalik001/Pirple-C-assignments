@@ -37,43 +37,43 @@ void declarewinner(void *ending ,int ch, char arr[][3]){
                 cout<<"Player X wins the top row. " <<endl;
                 goto *ending;}
                 else if ( ch==2&&arr[1][0]== 'X' ){
-                cout<<"Player X wins the top row. " <<endl;
+                cout<<"Player X wins the middle row. " <<endl;
                 goto *ending;}
                 else if (ch==3&&arr[2][0]== 'X'){
-                cout<<"Player X wins the top row. " <<endl;
+                cout<<"Player X wins the bottom row. " <<endl;
                 goto *ending;}
                 else if ( ch==4&&arr[0][1]== 'X' ){
-                cout<<"Player X wins the top row. " <<endl;
+                cout<<"Player X wins the left column. " <<endl;
                 goto *ending;}
                 else if ( ch==5&&arr[0][2]== 'X' ){
-                cout<<"Player X wins the top row. " <<endl;
+                cout<<"Player X wins the middle column. " <<endl;
                 goto *ending;}
                 else if ( ch==6&&arr[0][3]== 'X' ){
-                cout<<"Player X wins the top row. " <<endl;
+                cout<<"Player X wins the right column. " <<endl;
                 goto *ending;}
                 else if(ch==7&&(arr[0][0]== 'X' || arr[0][3]=='X')){
-                cout<<"Player X wins the top row. " <<endl;
+                cout<<"Player X wins the diagonal. " <<endl;
                 goto *ending;}
-                else if( ch==1&&arr[0][0]== 'Y' ){
+                else if( ch==1&&arr[0][0]== 'O' ){
                 cout<<"Player Y wins the top row. " <<endl;
                 goto *ending;}
-                else if ( ch==2&&arr[1][0]== 'Y' ){
-                cout<<"Player Y wins the top row. " <<endl;
+                else if ( ch==2&&arr[1][0]== 'O' ){
+                cout<<"Player Y wins the middle row. " <<endl;
                 goto *ending;}
-                else if (ch==3&&arr[2][0]== 'Y'){
-                cout<<"Player Y wins the top row. " <<endl;
+                else if (ch==3&&arr[2][0]== 'O'){
+                cout<<"Player Y wins the bottom row. " <<endl;
                 goto *ending;}
-                else if ( ch==4&&arr[0][1]== 'Y' ){
-                cout<<"Player Y wins the top row. " <<endl;
+                else if ( ch==4&&arr[0][1]== 'O' ){
+                cout<<"Player Y wins the left column. " <<endl;
                 goto *ending;}
-                else if ( ch==5&&arr[0][2]== 'Y' ){
-                cout<<"Player Y wins the top row. " <<endl;
+                else if ( ch==5&&arr[0][2]== 'O' ){
+                cout<<"Player Y wins the middle column. " <<endl;
                 goto *ending;}
-                else if ( ch==6&&arr[0][3]== 'Y') {
-                cout<<"Player Y wins the top row. " <<endl;
+                else if ( ch==6&&arr[0][3]== 'O') {
+                cout<<"Player Y wins the right column. " <<endl;
                 goto *ending;}
-                else if(ch==7&&(arr[0][0]== 'Y' || arr[0][3]=='X')){
-                cout<<"Player Y wins the top row. " <<endl;
+                else if(ch==7&&(arr[0][0]== 'O' || arr[0][3]=='O')){
+                cout<<"Player Y wins the diagonal. " <<endl;
                 goto *ending;}}
 int main()
 {
@@ -86,8 +86,7 @@ int main()
         for (int x =1;x<10;x++){
     cout<< "\n Current board state \n"<<endl;
             showBoard(Arrchar);
-            int wc = winnercheck(Arrchar);
-            declarewinner(ending,wc, Arrchar);
+            declarewinner(ending,winnercheck(Arrchar), Arrchar);
        choose: if(x%2==1)
          cout<<"Player X, enter a number between 1 and 9:"<<endl;
          else
