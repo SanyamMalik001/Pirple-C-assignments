@@ -17,7 +17,7 @@ int winnercheck(char arr[][3])
                 return (2);}
              else if(arr[2][0]== arr[2][1] && arr[2][1]==arr[2][2]){
                 return (3);}
-             else if(arr[0][0]==arr[1][0] && arr[2][0]==arr[2][0]){
+             else if(arr[0][0]==arr[1][0] && arr[1][0]==arr[2][0]){
                 return (4);}
              else if (arr[0][1]==arr[1][1] && arr[2][1]==arr[2][1]){
                 return (5);}
@@ -51,7 +51,7 @@ void declarewinner(void *ending ,int ch, char arr[][3]){
                 else if ( ch==6&&arr[0][3]== 'X' ){
                 cout<<"Player X wins the right column. " <<endl;
                 goto *ending;}
-                else if(ch==7&&(arr[0][0]== 'X' || arr[0][3]=='X')){
+                else if(ch==7&&((arr[0][0]== 'X' && arr[2][2]=='X')||(arr[2][0]=='X'&&arr[0][2]=='X'))){
                 cout<<"Player X wins the diagonal. " <<endl;
                 goto *ending;}
                 else if( ch==1&&arr[0][0]== 'O' ){
@@ -72,7 +72,7 @@ void declarewinner(void *ending ,int ch, char arr[][3]){
                 else if ( ch==6&&arr[0][3]== 'O') {
                 cout<<"Player Y wins the right column. " <<endl;
                 goto *ending;}
-                else if(ch==7&&(arr[0][0]== 'O' || arr[0][3]=='O')){
+                else if(ch==7&&((arr[0][0]== 'O' && arr[2][2]=='O')||(arr[2][0]=='O'&&arr[0][2]=='O'))){
                 cout<<"Player Y wins the diagonal. " <<endl;
                 goto *ending;}}
 int main()
@@ -117,7 +117,7 @@ int main()
             else{
             cout<<"That square is not available. Try again."<<endl;
             goto choose;  }
-            swap(lastPlayer, currentPlayer);
-            if (x==9){cout<<"Draw. Nobody Wins."<<endl;
-                goto ending;}}
+            if (x==9) { showBoard(Arrchar);}
+            swap(lastPlayer, currentPlayer);}
+            cout<<"Draw. Nobody Wins."<<endl;
     ending: return 0;}
